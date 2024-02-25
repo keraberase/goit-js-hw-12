@@ -17,12 +17,10 @@ const loadMore = document.querySelector('.js-btn-load');
 const loadMessage = document.querySelector('.load-message');
  // Total number of hits returned by the backend
 
- const loadMore = document.querySelector('.load-more');
+
 let query;
-let page = 1;
-const perPage = 20;
+let page;
 let maxImage;
-let totalHits = 0;
 
 
 // ================================================
