@@ -1,3 +1,4 @@
+
 // iziToast import
 import iziToast from "izitoast";
 // additional iziToast import
@@ -15,6 +16,7 @@ const getImage = document.querySelector(".gallery");
 const loader = document.querySelector('.js-loader');
 const loadMore = document.querySelector('.js-btn-load');
 const loadMessage = document.querySelector('.load-message');
+const lightbox = new SimpleLightbox('.gallery a');
 // Total number of hits returned by the backend
 let query;
 let page;
@@ -73,6 +75,7 @@ async function onFormSubmit(e) {
             getImage.innerHTML = ''; // Очищення списку зображень
             showError('No images found for your search query. Please try again!');
             e.target.elements.search.value = '';
+            loadMessage.classList.add('hidden')
             return;
         }
 
@@ -153,6 +156,5 @@ function renderImages(hits) {
     const markup = itemsTamplate(hits);
     getImage.insertAdjacentHTML('beforeend', markup);
 
-    const lightbox = new SimpleLightbox('.gallery a');
     lightbox.refresh();
 }
